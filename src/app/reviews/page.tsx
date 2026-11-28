@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import "./reviews.css";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Customer Reviews | YOI KIJI", description: "Stories and reviews shared by YOI KIJI customers." };
