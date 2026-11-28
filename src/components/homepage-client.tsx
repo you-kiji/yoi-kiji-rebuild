@@ -39,7 +39,7 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
   return <section className="yk-home-section yk-products-section">
     <SectionHeading href="/shop" count={products.length}>Featured Products</SectionHeading>
     <HorizontalTrack label="Featured products">
-      {products.slice(0, 6).map(product => <Link className="yk-product-card" href={"/product/" + product.slug} key={product.id}>
+      {products.slice(0, 6).map(product => <Link className="yk-product-card" href={"/products/" + product.slug} key={product.id}>
         <div className="yk-product-image">{product.image ? <Image src={product.image} alt={product.imageAlt || product.name} fill sizes="(max-width: 640px) 72vw, 28vw" /> : <span className="yk-image-placeholder" />}</div>
         <div className="yk-product-meta"><h3>{product.name}</h3><p>{new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(product.pricePaise / 100)}</p></div>
       </Link>)}
