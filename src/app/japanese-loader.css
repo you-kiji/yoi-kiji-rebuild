@@ -1,0 +1,93 @@
+.yk-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #e9e9e9;
+  color: #0e300e;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .45s ease, visibility .45s ease;
+}
+.yk-loader__pattern {
+  position: absolute;
+  inset: 0;
+  opacity: .1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 0 28px, #0e300e 29px 30px, transparent 31px 48px, #0e300e 49px 50px, transparent 51px),
+    radial-gradient(circle at 0 100%, transparent 0 28px, #0e300e 29px 30px, transparent 31px 48px, #0e300e 49px 50px, transparent 51px);
+  background-size: 100px 50px;
+}
+.yk-loader__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  text-align: center;
+}
+.yk-loader__wordmark { align-items: center; }
+.yk-loader__enso {
+  position: relative;
+  width: 94px;
+  height: 94px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(14,48,14,.2);
+  border-top-color: #9b8058;
+  border-right-color: #9b8058;
+  border-radius: 50%;
+  animation: yk-enso-turn 2.8s linear infinite;
+}
+.yk-loader__enso::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(14,48,14,.3);
+  border-left-color: transparent;
+  border-radius: 50%;
+}
+.yk-loader__enso span {
+  position: absolute;
+  top: -5px;
+  right: 12px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #9b8058;
+  box-shadow: 0 0 0 5px rgba(155,128,88,.13);
+}
+.yk-loader__japanese {
+  margin: 14px 0 19px;
+  color: #456044;
+  font-size: 15px;
+  letter-spacing: .16em;
+}
+.yk-loader__rule {
+  position: relative;
+  width: 150px;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(14,48,14,.2);
+}
+.yk-loader__rule i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 42%;
+  background: #9b8058;
+  animation: yk-loader-progress 1.2s ease-in-out infinite;
+}
+@keyframes yk-enso-turn { to { transform: rotate(360deg); } }
+@keyframes yk-loader-progress {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(250%); }
+}
+@media (max-width: 760px) {
+  .yk-loader__enso { width: 78px; height: 78px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yk-loader__enso, .yk-loader__rule i { animation: none; }
+}
