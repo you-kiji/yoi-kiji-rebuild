@@ -1,0 +1,3 @@
+"use client";
+import { useEffect,useState } from "react";
+export function CartCount(){const [count,setCount]=useState(0);useEffect(()=>{const update=()=>{try{const items=JSON.parse(localStorage.getItem("yoikiji_cart")??"[]") as {quantity:number}[];setCount(items.reduce((s,x)=>s+(Number.isFinite(x.quantity)?x.quantity:0),0));}catch{setCount(0)}};update();window.addEventListener("storage",update);window.addEventListener("yoikiji-cart-updated",update);return()=>{window.removeEventListener("storage",update);window.removeEventListener("yoikiji-cart-updated",update)}},[]);return <span>{count}</span>}
