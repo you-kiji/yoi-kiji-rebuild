@@ -42,5 +42,6 @@
     "postcss": "8.5.23",
     "deepmerge-ts": "8.0.2",
     "effect": "3.22.1"
-  }
+  },
+  "packageManager": "npm@10.9.4"
 }
