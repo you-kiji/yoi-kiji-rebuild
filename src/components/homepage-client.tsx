@@ -27,11 +27,10 @@ export function HeroSlider({ slides }: { slides: Slide[] }) {
     return () => window.clearInterval(timer);
   }, [slides.length]);
   if (!slides.length) return <div className="yk-hero-empty" aria-hidden="true" />;
-  return <section className="yk-hero" aria-label="YOI KIJI image collection">
+  return <section className="yk-hero" aria-label="YOI KIJI image slider">
     {slides.map((slide, index) => <div className={"yk-hero-slide" + (index === active ? " is-active" : "")} key={slide.imageUrl + index} aria-hidden={index !== active}>
       <Image src={slide.imageUrl} alt={slide.imageAlt || ""} fill priority={index === 0} sizes="100vw" quality={90} />
     </div>)}
-    {slides.length > 1 && <div className="yk-hero-progress" aria-hidden="true">{slides.map((_, index) => <span key={index} className={index === active ? "is-active" : ""} />)}</div>}
   </section>;
 }
 
@@ -52,7 +51,7 @@ export function GallerySection({ images }: { images: GalleryImage[] }) {
   if (!images.length) return null;
   return <section className="yk-home-section yk-gallery-section">
     <div className="yk-section-heading"><h2>Gallery</h2></div>
-    <div className="yk-gallery-grid">{images.slice(0, 16).map((image, index) => <div className={"yk-gallery-item yk-gallery-item-" + (index % 8)} key={image.imageUrl + index}>
+    <div className="yk-gallery-grid">{images.slice(0, 16).map((image, index) => <div className="yk-gallery-item" key={image.imageUrl + index}>
       <Image src={image.imageUrl} alt={image.imageAlt || "YOI KIJI textile and home collection"} fill sizes="(max-width: 640px) 48vw, 24vw" />
     </div>)}</div>
   </section>;
