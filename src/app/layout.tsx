@@ -5,7 +5,6 @@ import { SiteFooter } from "@/components/site-footer";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import "./globals.css";
 import "./chrome.css";
-import "./homepage.css";
 
 export const metadata: Metadata = {
   title: { default: "YOI KIJI — The Art of Textile Living", template: "%s | YOI KIJI" },
